@@ -52,11 +52,8 @@ $db['default']['hostname'] = 'localhost';
 $db['default']['username'] = 'root';
 $db['default']['password'] = '';
 $db['default']['database'] = 'db_mebalih';
-<<<<<<< HEAD
 $db['default']['dbdriver'] = 'mysql';
-=======
 $db['default']['dbdriver'] = 'mysqli';
->>>>>>> 8d6f28514f2596e4e26b019dc9d2a5d630f2cf49
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
