@@ -22,13 +22,11 @@
 | a PHP script and you can easily do that on your own.
 |
 */
-<<<<<<< HEAD
-$config['base_url'] = 'http://localhost/code/';
-=======
+
 $http = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '') . '://';
 $newurl = str_replace("index.php","", $_SERVER['SCRIPT_NAME']);
 $config['base_url']    = "$http" . $_SERVER['SERVER_NAME'] . "" . $newurl;
->>>>>>> 8854bd625bd0134f508ad1e1f74de1ab03ddf61e
+
 
 /*
 |--------------------------------------------------------------------------
