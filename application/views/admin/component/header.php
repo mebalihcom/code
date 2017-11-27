@@ -5,7 +5,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span></button>
-				<a class="navbar-brand" href="#"><span>Lumino</span>Admin</a>
+				<a class="navbar-brand" href="#"><span>Mebalih </span>Team</a>
 				<ul class="nav navbar-top-links navbar-right">
 					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
 						<em class="fa fa-envelope"></em><span class="label label-danger">15</span>
@@ -81,7 +81,7 @@
 				<em class="fa fa-ticket">&nbsp;</em> Ticket <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="sub-item-1">
-					<li><a class="" href="#">
+					<li><a class="" href="<?php echo base_url('panel/ticket_cat');?>">
 						<span class="fa fa-arrow-right">&nbsp;</span> Ticket Category
 					</a></li>
 					<li><a class="" href="#">
@@ -96,7 +96,7 @@
 				<em class="fa fa-dollar">&nbsp;</em> Payment <span data-toggle="collapse" href="payment" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="payment">
-          <li><a class="" href="#">
+          <li><a class="" href="<?php echo base_url('panel/payment_cat');?>">
 						<span class="fa fa-arrow-right">&nbsp;</span> payment Category
 					</a></li>
           <li><a class="" href="#">
@@ -108,7 +108,7 @@
 				<em class="fa fa-bank">&nbsp;</em> Bank <span data-toggle="collapse" href="#bank" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="bank">
-          <li><a class="" href="#">
+          <li><a class="" href="<?php echo base_url('panel/data_bank');?>">
 						<span class="fa fa-arrow-right">&nbsp;</span> Data Bank
 					</a></li>
 					<li><a class="" href="#">
@@ -142,7 +142,7 @@
 				<em class="fa fa-inbox">&nbsp;</em> Contact <span data-toggle="collapse" href="#contact" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="contact">
-          <li><a class="" href="#">
+          <li><a class="" href="<?php echo base_url('panel/contact_cat');?>">
 						<span class="fa fa-inbox">&nbsp;</span> Contact Category
 					</a></li>
 					<li><a class="" href="#">
