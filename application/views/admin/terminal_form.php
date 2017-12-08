@@ -23,10 +23,10 @@
 	<?php endforeach; ?>
 </head>
 <body>
-<?php $this->load->view('admin/component/header');?>
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+  <?php $this->load->view('admin/component/header');?>
+  <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 
-<h1 class="page-header"></h1>
+  <h1 class="page-header"></h1>
   <div class="panel panel-default">
       <div class="panel-heading"><?php echo $content_name;?> </div>
       <div class="panel-body">
@@ -39,25 +39,23 @@
   </div>
 </div>	<!--/.main-->
 
-
-  <script src="<?php echo base_url();?>assets/admin/js/bootstrap.min.js"></script>
-  <script src="<?php echo base_url();?>assets/admin/js/chart.min.js"></script>
-  <script src="<?php echo base_url();?>assets/admin/js/chart-data.js"></script>
-  <script src="<?php echo base_url();?>assets/admin/js/easypiechart.js"></script>
-  <script src="<?php echo base_url();?>assets/admin/js/easypiechart-data.js"></script>
-  <script src="<?php echo base_url();?>assets/admin/js/bootstrap-datepicker.js"></script>
-  <script src="<?php echo base_url();?>assets/admin/js/custom.js"></script>
-  <script>
-    window.onload = function () {
-      var chart1 = document.getElementById("line-chart").getContext("2d");
-      window.myLine = new Chart(chart1).Line(lineChartData, {
-        responsive: true,
-        scaleLineColor: "rgba(0,0,0,.2)",
-        scaleGridLineColor: "rgba(0,0,0,.05)",
-        scaleFontColor: "#c5c7cc"
-      });
-    };
-  </script>
-
+<script src="<?php echo base_url();?>assets/admin/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url();?>assets/admin/js/chart.min.js"></script>
+<script src="<?php echo base_url();?>assets/admin/js/chart-data.js"></script>
+<script src="<?php echo base_url();?>assets/admin/js/easypiechart.js"></script>
+<script src="<?php echo base_url();?>assets/admin/js/easypiechart-data.js"></script>
+<script src="<?php echo base_url();?>assets/admin/js/bootstrap-datepicker.js"></script>
+<script src="<?php echo base_url();?>assets/admin/js/custom.js"></script>
+<script>
+  window.onload = function () {
+    var chart1 = document.getElementById("line-chart").getContext("2d");
+    window.myLine = new Chart(chart1).Line(lineChartData, {
+      responsive: true,
+      scaleLineColor: "rgba(0,0,0,.2)",
+      scaleGridLineColor: "rgba(0,0,0,.05)",
+      scaleFontColor: "#c5c7cc"
+    });
+  };
+</script>
 </body>
 </html>

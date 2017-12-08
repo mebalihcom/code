@@ -154,10 +154,10 @@
 				<em class="fa fa-clone">&nbsp;</em> Page <span data-toggle="collapse" href="#page" class="icon pull-right"><em class="fa fa-plus"></em></span>
 				</a>
 				<ul class="children collapse" id="page">
-          <li><a class="" href="#">
+          <li><a class="" href="<?php echo base_url('panel/page_cat');?>">
 						<span class="fa fa-arrow-right">&nbsp;</span> Page Category
 					</a></li>
-					<li><a class="" href="#">
+					<li><a class="" href="<?php echo base_url('panel/page_list');?>">
 						<span class="fa fa-arrow-right">&nbsp;</span> Page List
 					</a></li>
 				</ul>
