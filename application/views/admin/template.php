@@ -9,6 +9,8 @@
 	<link href="<?php echo base_url();?>assets/admin/css/datepicker3.css" rel="stylesheet">
 	<link href="<?php echo base_url();?>assets/admin/css/styles.css" rel="stylesheet">
 
+  <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
 	<!--Custom Font-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 	<!--[if lt IE 9]>
@@ -42,6 +44,7 @@
 </div>	<!--/.main-->
 
   <script src="<?php echo base_url();?>assets/admin/js/jquery-1.11.1.min.js"></script>
+  <script type="text/javascript" src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
   <script src="<?php echo base_url();?>assets/admin/js/bootstrap.min.js"></script>
   <script src="<?php echo base_url();?>assets/admin/js/chart.min.js"></script>
   <script src="<?php echo base_url();?>assets/admin/js/chart-data.js"></script>
@@ -59,6 +62,12 @@
         scaleFontColor: "#c5c7cc"
       });
     };
+  </script>
+  <script type="text/javascript">
+      $(document).ready(function(){
+        $('#table_id').DataTable();
+      });
+ 
   </script>
 
 </body>

@@ -3,6 +3,7 @@
 class Panel extends CI_Controller {
 
 	private $template = 'admin/template';
+	private $user_data;
 
     public function __construct(){
       	parent::__construct();
@@ -19,6 +20,11 @@ class Panel extends CI_Controller {
 			return show_error('You must be an administrator to view this page.');
 		}
 		$this->load->library('grocery_CRUD');
+
+		$this->user_data = $this->ion_auth->user()->row();
+
+
+		$this->load->model('page_model');
     }
 
     public function index(){
@@ -93,14 +99,32 @@ class Panel extends CI_Controller {
 	}
 
 	function page_list(){
-		$crud= new grocery_CRUD();
-		$crud->set_table('page');
-		$crud->columns('id_page_category','date','slug','id_users','title','body','status');
-		$crud->display_as('tes','date','slug','id_users','title','body','status');
-		$crud->set_relation('id_page_category','page_category','page_cat_name');
-		$crud->set_subject('Page List');
-		$crud->set_theme('datatables');
-		$output = $crud->render();
-		$this->_terminal_input($output,'Page Category');
+		$this->data['content'] = 'admin/page_list';
+        $this->load->view($this->template, $this->data);
+	}
+
+	function page_list_add(){
+
+		$this->form_validation->set_rules('title', 'Title', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->data['content'] = 'admin/page_list_add';
+			$this->data['page_category'] = $this->page_model->getDataCat();
+        	$this->load->view($this->template, $this->data);
+		}else{
+			
+			$data_page = array(
+				'id_page_category' => set_value('category'),
+				'date' => set_value('date'),
+				'id_user' => $this->user_data->id,
+				'title' => set_value('title'),
+				'body' => set_value('body'),
+				'status' => '0'
+			);
+
+			print_r($data_page);
+
+		}
+		
 	}
 }

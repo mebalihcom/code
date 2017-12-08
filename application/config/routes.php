@@ -41,6 +41,8 @@
 $route['default_controller'] = "welcome";
 $route['404_override'] = '';
 
+$route['panel/page_list/add'] = 'panel/page_list_add';
+
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
