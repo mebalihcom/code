@@ -1,6 +1,6 @@
 <h1 class="page-header">Page List</h1>
 <div class="panel panel-default">
-  <div class="panel-heading">Data Page List - <a href="" class="btn btn-primary btn-sm"><em class="fa fa-plus"></em> Add Page</a></div>
+  <div class="panel-heading">Form Page List - <a href="<?=base_url()?>panel/page_list" class="btn btn-default btn-sm"><em class="fa fa-arrow-left"></em> Back</a></div>
   <div class="panel-body">
     <div class="col-lg-6 col-lg-offset-3">
        <?=form_open('panel/page_list/add', ['class' => 'form'])?>

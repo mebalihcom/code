@@ -141,7 +141,7 @@ class Panel extends CI_Controller {
 
 			$simpan_page = $this->page_model->save_pagelist($data_page);
 			if ($simpan_page == TRUE) {
-				$this->session->set_flashdata('success','Data page telah berhasil di simpan');
+				$this->session->set_flashdata('success','Data page telah berhasil disimpan');
 				redirect('panel/page_list');
 			}else{
 				$this->session->set_flashdata('error','data tidak dapat disimpan');
@@ -152,9 +152,58 @@ class Panel extends CI_Controller {
 
 	function page_list_edit($slug)
 	{
-		$this->data['content'] = 'admin/page_list_edit';
-		$this->data['page_category'] = $this->page_model->getDataCat();
-		$this->data['page'] = $this->page_model->getDataPage(array('slug'=>$slug));
-		$this->load->view($this->template, $this->data);
+		$this->form_validation->set_rules('category', 'category', '');
+		$this->form_validation->set_rules('date', 'date', 'required');
+		$this->form_validation->set_rules('title', 'Title', 'required');
+		$this->form_validation->set_rules('body', 'Title', '');
+
+		if ($this->form_validation->run() == FALSE) {
+
+			$this->data['content'] = 'admin/page_list_edit';
+			$this->data['page_category'] = $this->page_model->getDataCat();
+			$this->data['page'] = $this->page_model->getDataPage(array('slug'=>$slug));
+			$this->load->view($this->template, $this->data);
+
+		}else{
+
+			$title = strip_tags($this->input->post('title'));
+            $titleURL = strtolower(url_title($title));
+            if(isUrlExists('page',$titleURL)){
+               $titleURL = $titleURL.'-'.time(); 
+            }
+
+			$data_page = array(
+				'id_page_category' => set_value('category'),
+				'date' => set_value('date'),
+				'slug' => $titleURL,
+				'id_users' => $this->user_data->id,
+				'title' => set_value('title'),
+				'body' => set_value('body'),
+				'status' => '1'
+			);
+
+			$edit_page = $this->page_model->edit_pagelist($data_page, $slug);
+
+			if ($edit_page == TRUE) {
+				$this->session->set_flashdata('success','Data page telah berhasil diubah');
+				redirect('panel/page_list');
+			}else{
+				$this->session->set_flashdata('error','data tidak dapat disimpan');
+				redirect('panel/page_list/edit/'.$slug);
+			}
+		}
+	}
+
+	function page_list_delete($slug)
+	{
+		$delete_page = $this->page_model->delete($slug);
+
+		if ($delete_page == TRUE) {
+			$this->session->set_flashdata('success','Data page telah berhasil dihapus');
+			redirect('panel/page_list');
+		}else{
+			$this->session->set_flashdata('error','data tidak dapat dihapus');
+			redirect('panel/page_list');
+		}
 	}
 }

@@ -53,4 +53,22 @@ class Page_model extends CI_Model
 			return FALSE;
 		}
 	}
+
+	public function edit_pagelist($data_page, $slug)
+	{
+		if ($this->db->where('slug',$slug)->update('page',$data_page)) {
+			return TRUE;
+		}else{
+			return FALSE;
+		}
+	}
+
+	public function delete($slug)
+	{
+		if ($this->db->where('slug',$slug)->delete('page')) {
+			return TRUE;
+		}else{
+			return FALSE;
+		}
+	}
 }

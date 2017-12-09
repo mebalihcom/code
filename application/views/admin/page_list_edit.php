@@ -3,7 +3,7 @@
   <div class="panel-heading">Data Page List - <a href="<?=base_url()?>panel/page_list" class="btn btn-default btn-sm"><em class="fa fa-arrow-left"></em> Back</a></div>
   <div class="panel-body">
     <div class="col-lg-6 col-lg-offset-3">
-       <?=form_open('panel/page_list/add', ['class' => 'form'])?>
+       <?=form_open('panel/page_list/edit/'.$page['slug'], ['class' => 'form'])?>
         <div class="form-group">
           <label>Page Category</label>
           <select name="category" class="form-control">

@@ -43,6 +43,7 @@ $route['404_override'] = '';
 
 $route['panel/page_list/add'] = 'panel/page_list_add';
 $route['panel/page_list/edit/(:any)'] = 'panel/page_list_edit/$1';
+$route['panel/page_list/delete/(:any)'] = 'panel/page_list_delete/$1';
 
 
 /* End of file routes.php */

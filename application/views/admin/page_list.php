@@ -21,7 +21,7 @@
               <td><?php echo $page['body']; ?></td>
               <td><?php echo $page['date']; ?></td>
               <td><?php if($page['status'] == 1){ echo "Publish"; }else{echo "Draf";} ?></td>
-              <th><a href="<?=base_url()?>panel/page_list/edit/<?php echo $page['slug']; ?>" class="btn btn-default btn-sm"><em class="fa fa-pencil"></em></a><a href="<?=base_url()?>panel/page_list/delete/<?php echo $page['slug']; ?>" class="btn btn-danger btn-sm"><em class="fa fa-trash"></em></a></th>
+              <th><a href="<?=base_url()?>panel/page_list/edit/<?php echo $page['slug']; ?>" class="btn btn-default btn-sm"><em class="fa fa-pencil"></em></a><a href="<?=base_url()?>panel/page_list/delete/<?php echo $page['slug']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('apakah anda yakin ingin menghapus page <?php echo $page['title']; ?> ?')"><em class="fa fa-trash"></em></a></th>
             </tr>
           <?php endforeach; else: ?>
             <tr>
