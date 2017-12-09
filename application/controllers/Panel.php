@@ -25,6 +25,8 @@ class Panel extends CI_Controller {
 
 
 		$this->load->model('page_model');
+
+		$this->load->helper('common');
     }
 
     public function index(){
@@ -100,31 +102,59 @@ class Panel extends CI_Controller {
 
 	function page_list(){
 		$this->data['content'] = 'admin/page_list';
+
+		$this->data['pages'] = $this->page_model->getDataPage(array());
+
         $this->load->view($this->template, $this->data);
 	}
 
 	function page_list_add(){
 
+		$this->form_validation->set_rules('category', 'category', '');
+		$this->form_validation->set_rules('date', 'date', 'required');
 		$this->form_validation->set_rules('title', 'Title', 'required');
+		$this->form_validation->set_rules('body', 'Title', '');
 
 		if ($this->form_validation->run() == FALSE) {
+
 			$this->data['content'] = 'admin/page_list_add';
 			$this->data['page_category'] = $this->page_model->getDataCat();
         	$this->load->view($this->template, $this->data);
+
 		}else{
 			
+			$title = strip_tags($this->input->post('title'));
+            $titleURL = strtolower(url_title($title));
+            if(isUrlExists('page',$titleURL)){
+               $titleURL = $titleURL.'-'.time(); 
+            }
+
 			$data_page = array(
 				'id_page_category' => set_value('category'),
 				'date' => set_value('date'),
-				'id_user' => $this->user_data->id,
+				'slug' => $titleURL,
+				'id_users' => $this->user_data->id,
 				'title' => set_value('title'),
 				'body' => set_value('body'),
-				'status' => '0'
+				'status' => '1'
 			);
 
-			print_r($data_page);
-
+			$simpan_page = $this->page_model->save_pagelist($data_page);
+			if ($simpan_page == TRUE) {
+				$this->session->set_flashdata('success','Data page telah berhasil di simpan');
+				redirect('panel/page_list');
+			}else{
+				$this->session->set_flashdata('error','data tidak dapat disimpan');
+				redirect('panel/page_list/add');
+			}
 		}
-		
+	}
+
+	function page_list_edit($slug)
+	{
+		$this->data['content'] = 'admin/page_list_edit';
+		$this->data['page_category'] = $this->page_model->getDataCat();
+		$this->data['page'] = $this->page_model->getDataPage(array('slug'=>$slug));
+		$this->load->view($this->template, $this->data);
 	}
 }

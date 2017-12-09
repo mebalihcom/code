@@ -14,14 +14,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <th><a href="" class="btn btn-default btn-sm"><em class="fa fa-pencil"></em></a><a href="" class="btn btn-danger btn-sm"><em class="fa fa-trash"></em></a></th>
-          </tr>
+          <?php if(!empty($pages)): foreach($pages as $page): ?>
+            <tr>
+              <td><?php echo $page['id_page']; ?></td>
+              <td><?php echo $page['title']; ?></td>
+              <td><?php echo $page['body']; ?></td>
+              <td><?php echo $page['date']; ?></td>
+              <td><?php if($page['status'] == 1){ echo "Publish"; }else{echo "Draf";} ?></td>
+              <th><a href="<?=base_url()?>panel/page_list/edit/<?php echo $page['slug']; ?>" class="btn btn-default btn-sm"><em class="fa fa-pencil"></em></a><a href="<?=base_url()?>panel/page_list/delete/<?php echo $page['slug']; ?>" class="btn btn-danger btn-sm"><em class="fa fa-trash"></em></a></th>
+            </tr>
+          <?php endforeach; else: ?>
+            <tr>
+              <td colspan="6">Tidak ada post</td>
+            </tr>
+          <?php endif; ?>
         </tbody>
       </table>
   </div>
