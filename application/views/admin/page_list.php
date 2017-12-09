@@ -7,7 +7,6 @@
           <tr>
             <th>ID</th>
             <th>Page Title</th>
-            <th>Body</th>
             <th>Date</th>
             <th>Status</th>
             <th>Action</th>
@@ -18,10 +17,9 @@
             <tr>
               <td><?php echo $page['id_page']; ?></td>
               <td><?php echo $page['title']; ?></td>
-              <td><?php echo $page['body']; ?></td>
               <td><?php echo $page['date']; ?></td>
               <td><?php if($page['status'] == 1){ echo "Publish"; }else{echo "Draf";} ?></td>
-              <th><a href="<?=base_url()?>panel/page_list/edit/<?php echo $page['slug']; ?>" class="btn btn-default btn-sm"><em class="fa fa-pencil"></em></a><a href="<?=base_url()?>panel/page_list/delete/<?php echo $page['slug']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('apakah anda yakin ingin menghapus page <?php echo $page['title']; ?> ?')"><em class="fa fa-trash"></em></a></th>
+              <th><a href="<?=base_url()?>panel/page_list/edit/<?php echo $page['slug']; ?>" class="btn btn-info btn-sm"><em class="fa fa-eye"></em></a><a href="<?=base_url()?>panel/page_list/edit/<?php echo $page['slug']; ?>" class="btn btn-default btn-sm"><em class="fa fa-pencil"></em></a><a href="<?=base_url()?>panel/page_list/delete/<?php echo $page['slug']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('apakah anda yakin ingin menghapus page <?php echo $page['title']; ?> ?')"><em class="fa fa-trash"></em></a></th>
             </tr>
           <?php endforeach; else: ?>
             <tr>

@@ -24,7 +24,7 @@
         </div>
         <div class="form-group">
           <label>Body</label>
-          <textarea name="body" class="form-control"><?=$page['body']?></textarea>
+          <textarea name="body" class="form-control" id="editor1" rows="10" cols="80"><?=$page['body']?></textarea>
         </div>
         <div class="form-group">
           <input type="submit" name="simpan" value="Simpan" class="btn btn-primary">

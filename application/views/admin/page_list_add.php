@@ -18,11 +18,11 @@
         </div>
         <div class="form-group">
           <label>Title</label>
-          <input type="text" name="title" class="form-control">
+          <input type="text" name="title" class="form-control" value="<?=set_value('title')?>">
         </div>
         <div class="form-group">
           <label>Body</label>
-          <textarea name="body" class="form-control"></textarea>
+          <textarea name="body" class="form-control" id="editor1" rows="10" cols="80"><?=set_value('body')?></textarea>
         </div>
         <div class="form-group">
           <input type="submit" name="simpan" value="Simpan" class="btn btn-primary">
